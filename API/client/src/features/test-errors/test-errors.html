@@ -1,0 +1,19 @@
+<div class="flex flex-wrap justify-center gap-3 mt-10">
+  <button class="btn btn-primary" (click)="get500Error()">Test 500 Error</button>
+  <button class="btn btn-primary" (click)="get404Error()">Test 404 Error</button>
+  <button class="btn btn-primary" (click)="get401Error()">Test 401 Error</button>
+  <button class="btn btn-primary" (click)="get400Error()">Test 400 Error</button>
+  <button class="btn btn-primary" (click)="get400ValidationError()">
+    Test 400 Validation Error
+  </button>
+</div>
+
+@if (validationErrors().length > 0) {
+  <div class="mt-5 border-2 border-error bg-base-200 shadow-lg rounded-lg w-1/2 p-5 mx-auto">
+    <ul class="text-error font-bold list-disc text-left ml-5 space-y-1">
+      @for (error of validationErrors(); track $index) {
+        <li>{{ error }}</li>
+      }
+    </ul>
+  </div>
+}

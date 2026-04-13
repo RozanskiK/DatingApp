@@ -17,10 +17,12 @@ public class MemberRepository : IMemberRepository
     {
         return await _context.Members.FindAsync(id);
     }
+
     public async Task<Member?> GetMemberForUpdate(string id)
     {
-        return await _context.Members.Include(x => x.User).SingleOrDefaultAsync(x => x.Id == id);
+        return await _context.Members.Include(x => x.User).Include(x => x.Photos).SingleOrDefaultAsync(x => x.Id == id);
     }
+
     public async Task<IReadOnlyList<Member>> GetMembersAsync()
     {
         return await _context.Members.ToListAsync();

@@ -27,7 +27,7 @@ public class LikesRepository : ILikesRepository
     {
         return await context.Likes.Where(x => x.SourceMemberId == memberId).Select(x => x.TargetMemberId).ToListAsync();
     }
-    public async Task<MemberLike> GetMemberLike(string sourceMemberId, string targetMemberId)
+    public async Task<MemberLike?> GetMemberLike(string sourceMemberId, string targetMemberId)
     {
         return await context.Likes.FindAsync(sourceMemberId, targetMemberId);
     }

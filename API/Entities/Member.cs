@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
+
 namespace API.Entities;
 
 public class Member
@@ -25,6 +26,8 @@ public class Member
     
     [JsonIgnore]
     public List<MemberLike> LikedMembers {get; set;} = [];
+    public List<Message> MessagesSent {get; set;} = [];
+    public List<Message> MessagesReceived {get; set;} = [];
 
     [JsonIgnore]
     [ForeignKey(nameof(Id))]

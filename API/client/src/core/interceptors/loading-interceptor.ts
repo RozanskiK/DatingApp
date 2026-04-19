@@ -31,6 +31,10 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
     invalidateChace('/likes');
   }
 
+  if (req.method.includes('POST') && req.url.includes('/messages')) {
+    invalidateChace('/messages');
+  }
+
   if (req.method === 'GET') {
     const cacheRespone = cache.get(cacheKey);
     if (cacheRespone) {

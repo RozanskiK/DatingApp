@@ -8,6 +8,13 @@
       alt="{{ member.displayName }} image"
       class="rounded-lg"
     />
+
+    @if (isOnline()) {
+      <span
+        class="absolute top-2 left-2 w-5 h-5 bg-green-500 border-2 border-white rounded-full z-50"
+      ></span>
+    }
+
     <button
       (click)="toggleLike($event)"
       class="absolute top-1 right-1 z-40 btn btn-ghost btn-circle"
